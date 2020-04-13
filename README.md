@@ -1,2 +1,3 @@
-# arras-wr-sheet-player-tank-stats-script
-A Google Apps Script that calculates various statistics about Players and Tanks on the Arras.io World Records Archive spreadsheet.
+# Arras WRA Player/Tank Stats Script
+A Google Apps Script that calculates various statistics about Players and Tanks on the Arras.io World Records Archive spreadsheet. This was previously done with a plethora of confusing Spreadsheet formulas scattered all over the place, which made it extremely difficult and annoying to update whenever it inevitably broke after we added new gamemode columns or new tank rows the the spreadsheet.
+This script has the ability to automatically update itself after any changes to the spreadsheet, so it will (hopefully) not break after any future updates to the structure of the spreadsheet. Also, all the code is in one place now instead of in 500 different cells, which makes it far easier to understand and debug.
