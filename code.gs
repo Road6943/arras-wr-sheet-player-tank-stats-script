@@ -92,9 +92,9 @@ function GET_PLAYER_STATS(values) {
   
   let playerArray = [];
   
-  // second loop to calculate wr ratios for all players with at least MIN_RECORDS_TO_CALCULATE_RATIO wr's
+  // second loop to calculate wr ratios for all players with at least MIN_RECORDS_TO_CALCULATE_RATIO wr's, alongside the name format used alongside the ratio
   // and also to convert the playerObj into a 2d array that can be used in google sheets
-  // this is in a second loop so that the ratios are only calculated once overall, and not for every record a player has    
+  // this is in a second loop so that the ratios & ratio player name format are only calculated once overall, and not for every record a player has    
   for (let playerName in playerObj) {
     
     if (playerObj[playerName].numRecords >= MIN_RECORDS_TO_CALCULATE_RATIO) {
@@ -106,8 +106,12 @@ function GET_PLAYER_STATS(values) {
       playerObj[playerName].ratio = -1;
     }
     
+    // make the ratio player name format
+    playerObj[playerName].ratioPlayerNameFormat = playerName + " (" + playerObj[playerName].numRecords + " WR)";
+    
+    
     // convert playerObj into a 2d array usable by google sheets
-    const playerArrayRow = [playerName, playerObj[playerName].numRecords, playerObj[playerName].combinedRecordScore, playerObj[playerName].ratio];
+    const playerArrayRow = [playerName, playerObj[playerName].numRecords, playerObj[playerName].combinedRecordScore, playerObj[playerName].ratio, playerObj[playerName].ratioPlayerNameFormat];
     playerArray.push(playerArrayRow);
   }
   
